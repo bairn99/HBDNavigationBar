@@ -563,6 +563,8 @@ void printViewHierarchy(UIView *view, NSString *prefix) {
     self.navigationBar.fakeView.alpha = 0;
     self.navigationBar.shadowImageView.alpha = 0;
     self.navigationBar.backgroundImageView.alpha = 0;
+    // WGMARK: - 解决iOS18透明底问题
+    [self.navigationBar layoutIfNeeded];
     [self showFakeBarFrom:from];
     [self showFakeBarTo:to];
     [UIView setAnimationsEnabled:YES];
